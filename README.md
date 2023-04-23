@@ -28,7 +28,7 @@ Finally the data is curated and pushed into the final gold tables that represent
 
 In order to present the final reports, the SQL Serverless database was connected to power bi, exported into power bi web site and then published in a custom HTML page located called index.html located at root of this repository
 
-![App Screenshot](https://github.com/jaimepc/globant-challenge/blob/main/screenshots/power bi.png)
+![App Screenshot](https://github.com/jaimepc/globant-challenge/blob/main/screenshots/powerbi.png)
 
 ![App Screenshot](https://github.com/jaimepc/globant-challenge/blob/main/screenshots/finalresults.png)
 
