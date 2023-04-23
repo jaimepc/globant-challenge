@@ -1,0 +1,20 @@
+{
+	"name": "parquet_file_format",
+	"properties": {
+		"folder": {
+			"name": "file_formats"
+		},
+		"content": {
+			"query": "USE globantdb\nGO\nDROP EXTERNAL FILE FORMAT parquet_file_format\nGO\nCREATE EXTERNAL FILE FORMAT parquet_file_format  \n  WITH (  \n        FORMAT_TYPE = PARQUET,  \n        DATA_COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'  \n       ); ",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "globantdb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

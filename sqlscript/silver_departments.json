@@ -1,0 +1,20 @@
+{
+	"name": "silver_departments",
+	"properties": {
+		"folder": {
+			"name": "silver"
+		},
+		"content": {
+			"query": "USE globantdb;\nGO\nDROP EXTERNAL TABLE silver.departments\nGO\nCREATE EXTERNAL TABLE silver.departments\n    WITH\n    (\n        DATA_SOURCE = globantacc,\n        LOCATION = 'silver/departments',\n        FILE_FORMAT = parquet_file_format\n    )\nAS\nSELECT * FROM bronze.departments;\nGO\nSELECT * FROM silver.departments;\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "globantdb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

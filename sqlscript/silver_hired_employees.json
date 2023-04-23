@@ -1,0 +1,20 @@
+{
+	"name": "silver_hired_employees",
+	"properties": {
+		"folder": {
+			"name": "silver"
+		},
+		"content": {
+			"query": "USE globantdb;\nGO\nDROP EXTERNAL TABLE silver.hired_employees\nGO\nCREATE EXTERNAL TABLE silver.hired_employees\n    WITH\n    (\n        DATA_SOURCE = globantacc,\n        LOCATION = 'silver/hired_employees',\n        FILE_FORMAT = parquet_file_format\n    )\nAS\nSELECT * FROM bronze.hired_employees;\nGO\nSELECT * FROM silver.hired_employees;\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "globantdb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
