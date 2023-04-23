@@ -1,0 +1,20 @@
+{
+	"name": "gold_vw_factDepartments2021",
+	"properties": {
+		"folder": {
+			"name": "gold"
+		},
+		"content": {
+			"query": "USE globantdb;\nGO\nDROP VIEW gold.vw_factDepartments2021\nGO\nCREATE VIEW gold.vw_factDepartments2021\nAS \nWITH cte_hired_employees_departments AS (\n    SELECT\n        department_id\n        , COUNT(*) AS hired\n    FROM silver.hired_employees AS he\n    GROUP BY department_id\n)\nSELECT \n    d.id\n    , d.department\n    , cte.hired\nFROM silver.departments AS d \nJOIN cte_hired_employees_departments AS cte\n    ON cte.department_id = d.id\nGO\nSELECT * FROM gold.vw_factDepartments2021 ORDER BY hired DESC",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "globantdb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

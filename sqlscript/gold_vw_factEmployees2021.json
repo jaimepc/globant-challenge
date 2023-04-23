@@ -1,0 +1,20 @@
+{
+	"name": "gold_vw_factEmployees2021",
+	"properties": {
+		"folder": {
+			"name": "gold"
+		},
+		"content": {
+			"query": "USE globantdb;\nGO\nCREATE VIEW gold.vw_factEmployees2021 \nAS \nSELECT \n    PivotTable.*\nFROM (\n    SELECT   \n        d.department\n        , j.job\n        ,'Q'+CONVERT(VARCHAR, DATEPART(quarter,CAST(he.datetime AS DATE))) AS Q\n        , he.id\n    FROM silver.hired_employees AS he\n    JOIN silver.jobs AS j\n        ON j.id = he.job_id\n    JOIN silver.departments AS d\n        ON d.id = he.department_id\n    WHERE YEAR(CAST(datetime AS DATE))='2021'\n) AS X\nPIVOT (\n    COUNT(id)\n    FOR Q IN (Q1,Q2,Q3,Q4)\n) AS PivotTable\nGO\nSELECT * FROM gold.vw_factEmployees2021",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "globantdb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
