@@ -1,0 +1,20 @@
+{
+	"name": "departments",
+	"properties": {
+		"folder": {
+			"name": "bronze"
+		},
+		"content": {
+			"query": "USE globantdb\nGO\nDROP EXTERNAL TABLE bronze.departments\nGO\nCREATE EXTERNAL TABLE bronze.departments\n    (\n        id INT,\n        department VARCHAR(255) COLLATE Latin1_General_100_CI_AI_SC_UTF8\n    )  \n    WITH (\n        LOCATION = 'department/departments.csv',  \n        DATA_SOURCE = globantacc,  \n        FILE_FORMAT = csv_file_format,\n        REJECT_VALUE = 10,\n        REJECTED_ROW_LOCATION = 'rejections/departments'\n    );\nGO\nSELECT * FROM bronze.departments",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "globantdb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
