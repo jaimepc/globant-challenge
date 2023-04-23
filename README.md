@@ -36,6 +36,10 @@ In order to present the final reports, the SQL Serverless database was connected
 
 All code was commited and pushed into this repo, also the pbxi file and some versions were release to highlight the milestones of the project.
 
+## Disclamers
+
+This project will be deleted by 28th April in order to prevent extra cost in AZ subscription
+
 ## Authors
 
 - [@Jaime Padron](jaimepc199@gmail.com)
