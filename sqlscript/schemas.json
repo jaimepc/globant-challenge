@@ -1,11 +1,11 @@
 {
-	"name": "globantacc_eds",
+	"name": "schemas",
 	"properties": {
 		"folder": {
-			"name": "eds"
+			"name": "schema"
 		},
 		"content": {
-			"query": "USE globantdb\nGO\nDROP EXTERNAL DATA SOURCE globantacc\nGO\nCREATE EXTERNAL DATA SOURCE globantacc\nWITH(\n    LOCATION = 'abfss://globant-adls-fs@globantacc.dfs.core.windows.net'\n)",
+			"query": "USE globantdb\nGO\nCREATE SCHEMA bronze\nGO\nCREATE SCHEMA silver\nGO\nCREATE SCHEMA gold",
 			"metadata": {
 				"language": "sql"
 			},

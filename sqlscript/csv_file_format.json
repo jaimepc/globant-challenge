@@ -1,0 +1,20 @@
+{
+	"name": "csv_file_format",
+	"properties": {
+		"folder": {
+			"name": "file_formats"
+		},
+		"content": {
+			"query": "USE globantdb\nGO\nDROP EXTERNAL FILE FORMAT csv_file_format\nGO\nCREATE EXTERNAL FILE FORMAT csv_file_format\n  WITH (  \n      FORMAT_TYPE = DELIMITEDTEXT,\n      FORMAT_OPTIONS (  \n        FIELD_TERMINATOR = ','  \n      , STRING_DELIMITER = '\"'\n      , FIRST_ROW = 1\n      , USE_TYPE_DEFAULT = FALSE \n      , ENCODING = 'UTF8'\n      , PARSER_VERSION = '2.0' )   \n      );  \n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "globantdb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

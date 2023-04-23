@@ -1,0 +1,20 @@
+{
+	"name": "jobs",
+	"properties": {
+		"folder": {
+			"name": "bronze"
+		},
+		"content": {
+			"query": "USE globantdb\nGO\nDROP EXTERNAL TABLE bronze.jobs\nGO\nCREATE EXTERNAL TABLE bronze.jobs\n    (\n        id INT,\n        job VARCHAR(255) COLLATE Latin1_General_100_CI_AI_SC_UTF8\n    )  \n    WITH (\n        LOCATION = 'jobs/jobs.csv',  \n        DATA_SOURCE = globantacc,  \n        FILE_FORMAT = csv_file_format,\n        REJECT_VALUE = 10,\n        REJECTED_ROW_LOCATION = 'rejections/jobs'\n    );\nGO\nSELECT * FROM bronze.jobs",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "globantdb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
