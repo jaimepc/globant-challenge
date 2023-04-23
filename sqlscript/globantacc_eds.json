@@ -1,0 +1,20 @@
+{
+	"name": "globantacc_eds",
+	"properties": {
+		"folder": {
+			"name": "discovery"
+		},
+		"content": {
+			"query": "USE globantdb\nGO\nDROP EXTERNAL DATA SOURCE globantacc\nGO\nCREATE EXTERNAL DATA SOURCE globantacc\nWITH(\n    LOCATION = 'abfss://globant-adls-fs@globantacc.core.windows.net'\n)\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "globantdb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
